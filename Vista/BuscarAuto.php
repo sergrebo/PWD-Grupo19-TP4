@@ -17,14 +17,14 @@
       <fieldset>
         <legend>Ingrese la patente del auto que desea buscar</legend>
         <div class="form-group">
-          <label for="patete">Patente </label>
+          <label for="patente">Patente</label>
           <input type="text" name="Patente" id="patente">
           <input type="submit" value="Enviar">
         </div>
       </fieldset>
     </form>
   </div>
-  <script src="js/validacion_BuscarAuto.js"></script>
+  <script src="js/validacion.js"></script>
 </body>
 
 </html>

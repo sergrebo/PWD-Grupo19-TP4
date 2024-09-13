@@ -28,7 +28,7 @@ class Manipulacion
   $respuesta = "";
   
   foreach($array as $objPersona){
-    $respuesta .= '<li>' . $objPersona->getNombre() . ' - ' . $objPersona->getApellido() . ' - ' . $objPersona->getFechaNac() . ' - ' . $objPersona->getTelefono() . ' - ' . $objPersona->getDomicilio() . '<a href="autosPersona.php?NroDni='. $objPersona->getNroDni() .'">Ver Autos</a>' . '</li>';
+    $respuesta .= '<li>' . $objPersona->getNombre() . ' - ' . $objPersona->getApellido() . ' - ' . $objPersona->getFechaNac() . ' - ' . $objPersona->getTelefono() . ' - ' . $objPersona->getDomicilio() . '<a href="action/autosPersona.php?NroDni='. $objPersona->getNroDni() .'">Ver Autos</a>' . '</li>';
   }
   return $respuesta;
   }

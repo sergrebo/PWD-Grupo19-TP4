@@ -30,6 +30,6 @@
   </form>
 
   </div>
-  <script src="js/validacion_BuscarAuto.js"></script>
+  <script src="js/validacion.js"></script>
 </body>
 </html>

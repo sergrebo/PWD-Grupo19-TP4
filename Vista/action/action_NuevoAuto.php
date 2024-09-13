@@ -3,18 +3,27 @@ include_once '../../configuracion.php';
 
 $datos = data_submitted();
 $objAbmPersona = new AbmPersona;
-$arregloAux = ['NroDni' => $datos['dniDuenio']];
-print_r($arregloAux);
+$objAbmAuto = new AbmAuto;
 
-$resp = $objAbmPersona->buscar($arregloAux);
-print_r($resp);
+$arregloAuxDni = ['NroDni' => $datos['dniDuenio']];
+$arregloAuxPantente = ['Patente'=> $datos['Patente']];
 
-if (empty($resp)){
+
+//print_r($resp);
+//print_r($arregloAux);
+
+$resp = $objAbmPersona->buscar($arregloAuxDni);
+$respuestaAuto = $objAbmAuto->buscar($arregloAuxPantente);
+
+
+
+if(!empty($respuestaAuto)){
+  $cadena = 'El auto ya esta registrado.';
+}elseif(empty($resp)){
   //Debe ingresarse el nuevo registro de la persona
   $cadena = '<p>El DNI del propietario no pertene a ninguna persona registrada ¿Desea cargarlo?</p><br><a href="../NuevaPersona.php"><button>Si</button></a><a href="../NuevoAuto.php"><button>Volver</button></a>';
 } else {
   //La persona ya esta en la base de datos
-  $objAbmAuto = new AbmAuto;
   $rta = $objAbmAuto->alta($datos);
   if ($rta) {
     $cadena = 'Nuevo registro de auto cargado exitosamente.';
@@ -35,3 +44,5 @@ if (empty($resp)){
   <?php echo $cadena ?>
 </body>
 </html>
+
+
