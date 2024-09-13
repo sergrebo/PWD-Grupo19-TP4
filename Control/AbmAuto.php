@@ -136,4 +136,21 @@ class AbmAuto
     ];
     return $arreglo;
   }
+
+  /**
+  * Devuelve los valores de una auto para la vista.
+  * @param obj $param
+  * @return array
+  */
+  public function datosParaVista($param) {
+    if (!empty($param)) {
+      $resultados = [
+        'Patente' => $param->getPatente(),
+        'Marca' => $param->getMarca(),
+        'Modelo' => $param->getModelo(),
+        'dniDuenio' => $param->getDniDuenio(),
+      ];
+    }
+    return $resultados;
+  }
 }

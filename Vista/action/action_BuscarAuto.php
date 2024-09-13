@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+include_once '../estructura/cabecera.php';
 
 $datos = data_submitted();
 //print_r($datos);
@@ -14,7 +14,7 @@ if (!empty($arregloAuto)) {
 }
 
 ?>
-
+<!--
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,8 +22,18 @@ if (!empty($arregloAuto)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultado busqueda auto</title>
 </head>
+-->
+
 <body>
-  <h1>Resultado</h1>
-  <table> <?php echo $cadena ?> </table>
+  <div class="row col-4 m-auto">
+    <div class="">
+      <h1>Resultado</h1>
+      <table> <?php echo $cadena ?> </table>
+    </div>
+  </div>
+  <?php
+  include_once '../estructura/pie.php';
+  ?>
+  <!--
 </body>
 </html>

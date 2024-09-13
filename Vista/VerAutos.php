@@ -1,5 +1,5 @@
 <?php
-include_once '../configuracion.php';
+include_once './estructura/cabecera.php';
 
 $obj = new AbmAuto;
 $arregloAutos = [];
@@ -12,7 +12,7 @@ if (!empty($arregloAutos)) {
 }
 
 ?>
-
+<!--
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,10 +21,22 @@ if (!empty($arregloAutos)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ver Autos</title>
 </head>
+-->
+
 
 <body>
-  <h1>Lista de autos</h1>
-  <ul><?php echo $cadena ?></ul>
+  <div class="row col-4 m-auto">
+    <div class="">
+      <h1>Lista de autos</h1>
+      <ul><?php echo $cadena ?></ul>
+    </div>
+  </div>
+
+
+  <?php
+  include_once './estructura/pie.php';
+  ?>
+  <!--
 </body>
 
 </html>

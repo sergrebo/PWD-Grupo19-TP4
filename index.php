@@ -11,7 +11,6 @@
 
 </head>
 -->
-
 <?php
 include_once './Vista/estructura/cabecera.php';
 ?>

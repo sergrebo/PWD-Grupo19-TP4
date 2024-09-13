@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,6 +11,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
   <title>Buscar Auto</title>
 </head>
+-->
+<?php
+include_once './estructura/cabecera.php';
+?>
 
 <body>
   <div class="container">
@@ -25,6 +30,10 @@
     </form>
   </div>
   <script src="js/validacion.js"></script>
+  <?php
+  include_once './estructura/pie.php';
+  ?>
+  <!--
 </body>
 
 </html>

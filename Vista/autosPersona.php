@@ -1,10 +1,10 @@
 <?php
-include_once '../configuracion.php';
+include_once './estructura/cabecera.php';
 
 //if(isset($_GET['dni'])){
-    //$dni = $_GET['dni'];}
+//$dni = $_GET['dni'];}
 
-   $dni = data_submitted();
+$dni = data_submitted();
 
 $abmPersona = new AbmPersona();
 $abmAuto = new AbmAuto();
@@ -13,10 +13,15 @@ $abmAuto = new AbmAuto();
 $persona = $abmPersona->buscar($dni);
 
 // Buscar los autos por el DNI del dueño
-$autos = $abmAuto->buscar(['dniDuenio'=>$dni['NroDni']]);
+$autos = $abmAuto->buscar(['dniDuenio' => $dni['NroDni']]);
 
+$arregloDatosPersona = $abmPersona->datosParaVista($persona);
+
+/*
 if (!empty($persona)) {
-    $persona = $persona[0]; // Suponemos que solo hay una persona con ese DNI
+
+    
+
     echo "<h2>Datos de la persona:</h2>";
     echo "Nombre: " . $persona->getNombre() . "<br>";
     echo "Apellido: " . $persona->getApellido() . "<br>";
@@ -26,8 +31,16 @@ if (!empty($persona)) {
 } else {
     echo "No se encontró una persona con el DNI: " . $dni;
 }
+*/
+
 
 // Mostrar los autos de la persona
+$arregloDatosAutos = [];
+foreach ($autos as $objAuto) {
+  $arregloDatosAutos[] = $abmAuto->datosParaVista($objAuto);
+}
+
+/*
 echo "<h2>Autos de la persona:</h2>";
 if (!empty($autos)) {
     echo "<ul>";
@@ -38,6 +51,51 @@ if (!empty($autos)) {
 } else {
     echo "Esta persona no tiene autos registrados.";
 }
+*/
+?>
 
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+-->
 
+<body>
+  <div class="row col-4 m-auto">
+    <h2>Datos Persona</h2>
+    <?php
+    if (is_array($arregloDatosPersona)) {
+      foreach ($arregloDatosPersona as $clave => $valor) {
+        echo $clave . ": " . $valor . '<br>';
+      } 
+    } else {
+      echo "No se encontró una persona con el DNI: " . $dni . ".";
+    }
+    ?>
+
+    <h2>Datos Autos</h2>
+    <?php
+    if (count($arregloDatosAutos)==0) {
+      echo 'Esta persona no tiene autos registrados.';
+    } else {
+      foreach ($arregloDatosAutos as $arregloAsocAuto) {
+        foreach ($arregloAsocAuto as $clave => $valor) {
+          echo $clave . ": " . $valor . '<br>';
+        }
+        echo '<br>';
+      }
+    }
+    ?>
+
+    </div>
+    
+</body>
+</html>
+
+<?php
+include_once './estructura/pie.php';
 ?>
