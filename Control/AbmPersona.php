@@ -146,4 +146,28 @@ class AbmPersona
     }
     return $respuesta;
   }
+
+  /**
+  * Devuelve los valores de una persona para la vista.
+  * @param array $param
+  * @return array
+  */
+  public function obtenerDatosParaVista($param) {
+    $datosPersona = $this->buscar($param);
+    $resultados = [];
+
+    if (!empty($datosPersona)) {
+      $persona = $datosPersona[0];
+      $resultados = [
+        'Nombre' => $persona->getNombre(),
+        'Apellido' => $persona->getApellido(),
+        'NroDni' => $persona->getNroDni(),
+        'fechaNac' => $persona->getFechaNac(),
+        'Telefono' => $persona->getTelefono(),
+        'Domicilio' => $persona->getDomicilio()
+      ];
+    }
+    return $resultados;
+  }
+  
 }
