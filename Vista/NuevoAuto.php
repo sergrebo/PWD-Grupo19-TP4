@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -8,8 +8,12 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
   <title>Nuevo Auto</title>
-</head>
-<body>
+</head> 
+<body>-->
+<?php
+  include_once './estructura/cabecera.php';
+?>
+
 <div class="container">
     <h1 class="">Ingrese los datos del vehículo</h1>
 
@@ -41,5 +45,8 @@
 
   </div>
   <script src="js/validacion.js"></script>
-</body>
-</html>
+<?php
+  include_once './estructura/pie.php';
+?>
+<!-- </body>
+</html> -->

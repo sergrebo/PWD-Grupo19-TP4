@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+include_once '../estructura/cabecera.php';
 
 $datos = data_submitted();
 $objAbmAuto = new AbmAuto;
@@ -28,14 +28,18 @@ if (empty($arregloAutoEncontrado)) {
 }
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Transferencia de vehículo</title>
-</head>
+</head> 
 <body>
+  -->
   <p><?php echo $cadena ?></p>
-</body>
-</html>
+<?php
+  include_once '../estructura/pie.php';
+?>
+<!-- </body>
+</html> -->

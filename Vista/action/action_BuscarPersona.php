@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+include_once '../estructura/cabecera.php';
 
 $datos = data_submitted();
 $objAbmPersona = new AbmPersona;
@@ -9,7 +9,7 @@ $resultado = $objAbmPersona->obtenerDatosParaVista($datos);
 
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@ $resultado = $objAbmPersona->obtenerDatosParaVista($datos);
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
   <title>Buscar Persona</title>
 </head>
-<body>
+<body> -->
   <div class="container">
   <?php
     if (count($resultado)>0) {
@@ -77,5 +77,8 @@ $resultado = $objAbmPersona->obtenerDatosParaVista($datos);
 
   </div>
   <script src="../js/validacion.js"></script>
-</body>
-</html>
+<?php
+  include_once '../estructura/pie.php';
+?>
+  <!-- </body>
+</html> -->
