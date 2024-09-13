@@ -1,3 +1,5 @@
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/PHPMYSQL/configuracion.php'); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,7 +20,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../index.php">Inicio</a>
+      <a class="navbar-brand" href="<?php echo $PRINCIPAL ?>">Inicio</a>
       <!--
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
