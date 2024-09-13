@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+include_once '../estructura/cabecera.php';
 
 $datos = data_submitted();
 $objAbmPersona = new AbmPersona;
@@ -21,7 +21,7 @@ if(!empty($respuestaAuto)){
   $cadena = 'El auto ya esta registrado.';
 }elseif(empty($resp)){
   //Debe ingresarse el nuevo registro de la persona
-  $cadena = '<p>El DNI del propietario no pertene a ninguna persona registrada ¿Desea cargarlo?</p><br><a href="../NuevaPersona.php"><button>Si</button></a><a href="../NuevoAuto.php"><button>Volver</button></a>';
+  $cadena = '<p>El DNI del propietario no pertenece a ninguna persona registrada ¿Desea cargarlo?</p><br><a href="../NuevaPersona.php"><button>Si</button></a><a href="../NuevoAuto.php"><button>Volver</button></a>';
 } else {
   //La persona ya esta en la base de datos
   $rta = $objAbmAuto->alta($datos);
@@ -33,16 +33,20 @@ if(!empty($respuestaAuto)){
 }
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
+</head> 
 <body>
-  <?php echo $cadena ?>
-</body>
-</html>
+  -->
+  <?php 
+    echo "<p>$cadena</p>";
+    include_once '../estructura/pie.php';
+  ?>
+<!-- </body>
+</html> -->
 
 

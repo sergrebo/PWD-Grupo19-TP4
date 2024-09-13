@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+include_once '../estructura/cabecera.php';
 
 $datos = data_submitted();
 //print_r($datos);
@@ -13,15 +13,19 @@ if ($resp) {
 }
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actualizar Datos Persona</title>
-</head>
+</head> 
 <body>
+  -->
   <h1>Resultado</h1>
   <p><?php echo $cadena ?></p>
-</body>
-</html>
+<!-- </body>
+</html> -->
+<?php
+include_once '../estructura/pie.php';
+?>

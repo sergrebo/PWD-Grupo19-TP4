@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -10,8 +10,11 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
   <title>Buscar Persona</title>
 </head>
+<body> -->
+<?php
+  include_once './estructura/cabecera.php';
+?>
 
-<body>
   <div class="container">
     <form action="./action/action_BuscarPersona.php" method="post" id="formulario" class="needs-validation" novalidate>
       <fieldset>
@@ -25,6 +28,9 @@
     </form>
   </div>
   <script src="js/validacion.js"></script>
-</body>
+<?php
+  include_once './estructura/pie.php';
+?>
+<!-- </body>
 
-</html>
+</html> -->
