@@ -3,7 +3,7 @@ include_once '../../configuracion.php';
 
 $datos = data_submitted();
 $objAbmPersona = new AbmPersona;
-$resultado = $objAbmPersona->buscar($datos);
+$resultado = $objAbmPersona->obtenerDatosParaVista($datos);
 //print_r($resultado);
 
 
@@ -21,47 +21,59 @@ $resultado = $objAbmPersona->buscar($datos);
   <title>Buscar Persona</title>
 </head>
 <body>
-<div class="container">
+  <div class="container">
+  <?php
+    if (count($resultado)>0) {
+  ?>
     <h1 class="">Ingrese sus datos </h1>
 
     <form action="action_ActualizarDatosPersona.php" method="post" id="formulario" class="needs-validation" novalidate>
 
       <div class="form-group col-md-4 mb-3">
         <label for="validationCustom01" class="form-label">DNI</label>
-        <input type="text" name="NroDni" class="form-control" id="validationCustom01" required value="<?php echo $resultado[0]->getNroDni()?>" readonly>
+        <input type="text" name="NroDni" class="form-control" id="validationCustom01" required value="<?php echo $resultado['NroDni'];?>" readonly>
       </div>
 
       <div class="form-group col-md-4 mb-3">
         <label for="validationCustom03">Apellido</label>
-        <input type="text" name="Apellido" class="form-control" id="validationCustom03" required value="<?php echo $resultado[0]->getApellido()?>">
+        <input type="text" name="Apellido" class="form-control" id="validationCustom03" required value="<?php echo $resultado['Apellido'];?>">
       </div>
 
       <div class="form-group col-md-4 mb-3">
         <label for="validationCustom02" class="form-label">Nombre</label>
-        <input type="text" name="Nombre" class="form-control" id="validationCustom02" required value="<?php echo $resultado[0]->getNombre()?>">
+        <input type="text" name="Nombre" class="form-control" id="validationCustom02" required value="<?php echo $resultado['Nombre'];?>">
       </div>
 
       <div class="form-group col-md-4 mb-3">
         <label for="validationCustom04">Fecha de Nacimiento</label>
-        <input type="date" name="fechaNac" class="form-control" id="validationCustom04" max="2006-01-01" min="1950-01-01" required value="<?php echo $resultado[0]->getFechaNac()?>">
+        <input type="date" name="fechaNac" class="form-control" id="validationCustom04" max="2006-01-01" min="1950-01-01" required value="<?php echo $resultado['fechaNac'];?>">
       </div>
 
 
       <div class="form-group col-md-4 mb-3">
         <label for="validationCustom05" class="form-label">Telefono</label>
-        <input type="text" name="Telefono" class="form-control" id="validationCustom05" required value="<?php echo $resultado[0]->getTelefono()?>">
+        <input type="text" name="Telefono" class="form-control" id="validationCustom05" required value="<?php echo $resultado['Telefono'];?>">
       </div>
 
 
       <div class="form-group col-md-4 mb-3">
         <label for="validationCustom06">Domicilio</label>
-        <input type="text" name="Domicilio" class="form-control" id="validationCustom06" required value="<?php echo $resultado[0]->getDomicilio()?>">
+        <input type="text" name="Domicilio" class="form-control" id="validationCustom06" required value="<?php echo $resultado['Domicilio'];?>">
       </div>
 
 
       <input class="btn btn-primary" type="submit" value="Enviar">
-  </div>
-  </form>
+    </form>
+    <?php
+      }
+      else {
+    ?>
+        <div class="alert alert-danger mt-4" role="alert">
+          Error, el DNI ingresado no se encuentra registrado!!
+        </div>
+    <?php
+      }
+    ?>
 
   </div>
   <script src="../js/validacion.js"></script>
