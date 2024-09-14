@@ -22,7 +22,7 @@
         <div class="form-group">
           <label for="dni">DNI </label>
           <input type="text" name="NroDni" id="dni">
-          <input type="submit" value="Enviar">
+          <input class="btn btn-primary" type="submit">
         </div>
       </fieldset>
     </form>

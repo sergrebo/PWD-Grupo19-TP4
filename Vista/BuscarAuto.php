@@ -24,7 +24,7 @@ include_once './estructura/cabecera.php';
         <div class="form-group">
           <label for="patente">Patente</label>
           <input type="text" name="Patente" id="patente">
-          <input type="submit" value="Enviar">
+          <input class="btn btn-primary" type="submit">
         </div>
       </fieldset>
     </form>
